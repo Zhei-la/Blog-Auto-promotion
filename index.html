@@ -97,6 +97,29 @@ a{text-decoration:none;color:inherit;}
 footer{background:var(--bg);border-top:1px solid var(--border);padding:32px;text-align:center;}
 footer p{font-size:12px;color:var(--text3);line-height:2;}
 footer strong{color:var(--gold);font-weight:500;}
+
+html { scroll-behavior: smooth; }
+
+.big-card, .reason-item, .agency-item, .price-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.big-card.visible, .reason-item.visible, .agency-item.visible, .price-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-badge, .hero h1, .hero p, .hero-btn {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.7s ease forwards;
+}
+.hero h1 { animation-delay: 0.1s; }
+.hero p { animation-delay: 0.2s; }
+.hero-btn { animation-delay: 0.3s; }
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -255,5 +278,22 @@ footer strong{color:var(--gold);font-weight:500;}
   <p style="margin-top:6px;"></p>
 </footer>
 
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.big-card, .reason-item, .agency-item, .price-item').forEach(el => {
+  observer.observe(el);
+});
+</script>
 </body>
 </html>
