@@ -120,6 +120,42 @@ html { scroll-behavior: smooth; }
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ── 모바일 반응형 ── */
+@media (max-width: 600px) {
+  .hero { padding: 80px 20px 60px; }
+  .hero h1 { font-size: 32px; }
+  .hero p { font-size: 15px; }
+  .btn-main { padding: 13px 24px; font-size: 14px; }
+
+  .stats-inner { flex-wrap: wrap; gap: 28px; }
+  .stat-num { font-size: 30px; }
+
+  .wrap { padding: 32px 16px; gap: 14px; }
+  .big-card { padding: 28px 20px; }
+  .card-title { font-size: 22px; }
+  .card-sub { font-size: 13px; }
+
+  .reason-item { padding: 18px 16px; }
+  .reason-item h4 { font-size: 14px; }
+  .reason-item p { font-size: 12px; }
+
+  .agency-item { padding: 18px 16px; }
+  .agency-item h4 { font-size: 14px; }
+  .agency-item p { font-size: 12px; }
+
+  .price-grid { gap: 10px; }
+  .price-item { padding: 22px 16px; }
+  .p-amount { font-size: 26px; }
+  .p-list li { font-size: 12px; }
+
+  .tags { gap: 8px; }
+  .tag { font-size: 12px; padding: 6px 12px; }
+
+  .big-card.gold-border { padding: 28px 20px; }
+
+  footer p { font-size: 11px; }
+}
 </style>
 </head>
 <body>
